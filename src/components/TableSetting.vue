@@ -2,18 +2,29 @@
 <div class="table">
     <div class="tableName">
       <slot name="tableName" />
-        {{ table.tableName }}
+        {{ createTable.TableNumber }}
     </div>
 
    <div class="guests">
       <slot name="guests" />
-        {{ tableGuestName }}
+        {{ createTable.guestName }}
     </div>
 
   </div>
 </template>
 
-<script>
+<script setup>
+import { useStore } from '../stores/store'
+
+const store = useStore();
+const createTable = createTable()
+
+return{ 
+  store,
+  createTable
+
+}
+
 
 </script>
 

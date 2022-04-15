@@ -18,7 +18,7 @@
 
 </template>  
 
-<script setup>
+<script setup lang="ts">
 //import { useStore } from '../stores/store'
 import { ref, onMounted} from 'vue'
 import table from '../components/TableSetting.vue'
