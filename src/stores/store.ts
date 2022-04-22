@@ -9,7 +9,8 @@ export const useStore = defineStore('store',{
             createTable
 
         }
-    }
+    },
+    persist: true,
 })
 
 export default interface tableSetting{

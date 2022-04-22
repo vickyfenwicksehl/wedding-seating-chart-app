@@ -1,41 +1,26 @@
 <template>
 <div class="tableCount">
   <h3> How many tables do you need? </h3>
-  <button @click="numberOfTables">Number of Tables is: {{ tableNumbers }}</button>
-</div>
-
-  <table />
-
-  <div v-bind="tableName">
-    {{ table.tableName }}
+    <input id = "totalTables" v-model.number="numberOfTables" />
   </div>
 
-<div v-bind="guests">
-  {{ table.guests}}
-  </div>
-
-
+<router-link to="/table">
+  <Table>Table</Table>
+</router-link>
+<router-view />
 
 </template>  
 
 <script setup lang="ts">
-//import { useStore } from '../stores/store'
-import { ref, onMounted} from 'vue'
-import table from '../components/TableSetting.vue'
 
+export default{
+  const numberOfTables = 0
 
+  return{
+    numberOfTables
+  }
 
-const tableNumbers = ref(0)
-
-function numberOfTables(){
-  tableNumbers.value++
 }
-
-onMounted(()=>{
-  console.log(`The number of tables is ${tableNumbers.value}`)
-})
-
-
 
 </script>
 

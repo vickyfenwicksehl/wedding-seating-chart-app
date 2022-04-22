@@ -7,36 +7,33 @@
 
    <div class="guests">
       <slot name="guests" />
-        {{ fullName }}
+        {{ guestName }}
     </div>
 
   </div>
 </template>
 
-<script setup>
+<script lang="ts">
 import { useStore, createTable } from '../stores/store'
-import { computed } from 'vue'
 
-const store = useStore();
-const table = createTable();
 
-const fullName = computed(()=>{
-  return createTable.guestName;
-})
+export default{
+  setup(){
+      const store = useStore()
+      const table = createTable()
 
-const tableNumber = computed(()=>{
-  return createTable.tableNumber
-})
+      const tableNumber = table.tableNumber
+      const guestName = table.guestName
 
-return{ 
-  store,
-  table,
-  fullName,
-  tableNumber
+  return{ 
+      store,
+      table,
+      tableNumber,
+      guestName
 
+    }
+  }
 }
-
-
 </script>
 
 <style scoped>
